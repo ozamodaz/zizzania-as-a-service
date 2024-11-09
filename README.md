@@ -17,5 +17,7 @@ And you should end with new interface named like this:
 wlan0mon
 ```
 This is interface you should put to Env-file as ADAPTER_MON
+
 Original interface name is ADAPTER
+
 TIME - period between rotate wireless channel
