@@ -1,0 +1,12 @@
+[Unit]
+Description=Rotate WiFi channel
+
+[Service]
+Restart=always
+
+EnvironmentFile=/opt/zizzania/environment
+ExecStart=/usr/bin/python3 /opt/zizzania/rotate_channel.py
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
