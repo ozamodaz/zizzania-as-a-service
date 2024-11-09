@@ -5,7 +5,8 @@ Description=Run zizzania daemonized
 Restart=always
 
 EnvironmentFile=/opt/zizzania/environment
-ExecStart=/usr/local/bin/zizzania -i $ADAPTER -M -d 10 -w /tmp/zizzania.pcap
+ExecStartPre=-airmon-ng start $ADAPTER
+ExecStart=/usr/local/bin/zizzania -i $ADAPTER_MON -M -d 10 -w /tmp/zizzania.pcap
 #StandardOutput=file:/tmp/zizzania.stdout
 
 [Install]
