@@ -30,7 +30,7 @@ def get_curr_channel(adapter):
     return (ch_num, ch_freq, iwlist_output)
     
 
-#import ipdb; ipdb.set_trace()
+
 if __name__ == "__main__":
     adapter = os.environ.get('ADAPTER')
     time_period = int(os.environ.get('TIME', 600))
@@ -47,5 +47,4 @@ if __name__ == "__main__":
            else:
               logger.info('ERROR! Channel not set! iwlist output was:')
               logger.info(curr_ch[2])
-              import ipdb; ipdb.set_trace()
            sleep(time_period)
