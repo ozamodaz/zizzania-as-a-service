@@ -33,7 +33,7 @@ def get_curr_channel(adapter):
 #import ipdb; ipdb.set_trace()
 if __name__ == "__main__":
     adapter = os.environ.get('ADAPTER')
-    time_period = os.environ.get('TIME', 600)
+    time_period = int(os.environ.get('TIME', 600))
     ch_list = get_channels(adapter)
     while True:
        for ch in ch_list:
