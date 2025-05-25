@@ -21,3 +21,10 @@ This is interface you should put to Env-file as `ADAPTER_MON`
 Original interface name is `ADAPTER`
 
 `TIME` - period between rotate wireless channel
+
+#### Notes:
+On Armbian for Qualcomm Atheros Communications AR9271
+```
+apt install firmware-ath9k-htc
+```
+rotate channel on Armbian seem to work when setting `ADAPTER_MON` not `ADAPTER`
