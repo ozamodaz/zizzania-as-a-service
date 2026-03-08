@@ -33,8 +33,15 @@ def get_curr_channel(adapter):
 
 if __name__ == "__main__":
     adapter = os.environ.get('ADAPTER')
+    if not adapter:
+        logger.info('Adapter Env Var ADAPTER= is not set')
+        exit(1)
     time_period = int(os.environ.get('TIME', 600))
-    ch_list = get_channels(adapter)
+    env_channels = os.environ.get('CHANNELS')
+    if env_channels:
+        ch_list = env_channels.split(',')
+    else:
+        ch_list = get_channels(adapter)
     while True:
        for ch in ch_list:
            logger.info('Switching %s to channel: %s' % (adapter, ch[0]))
