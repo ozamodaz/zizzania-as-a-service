@@ -42,6 +42,7 @@ if __name__ == "__main__":
         ch_list = env_channels.split(',')
     else:
         ch_list = get_channels(adapter)
+    logger.info('Will rotate over next channels: %s' % ch_list)
     while True:
        for ch in ch_list:
            logger.info('Switching %s to channel: %s' % (adapter, ch[0]))
