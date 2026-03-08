@@ -15,7 +15,7 @@ def get_channels(adapter):
             ch_num = re.search('Channel (\d+)', ch).group(1)
             ch_freq = re.search('(\d\.\d+) GHz', ch).group(1)
             logger.info('%s: %s Ghz' % (ch_num, ch_freq))
-            ch_list.append((ch_num, ch_freq))
+            ch_list.append(ch_num)
     return ch_list
 
 def get_curr_channel(adapter):
@@ -45,8 +45,8 @@ if __name__ == "__main__":
     logger.info('Will rotate over next channels: %s' % ch_list)
     while True:
        for ch in ch_list:
-           logger.info('Switching %s to channel: %s' % (adapter, ch[0]))
-           cmd = 'iwconfig %s channel %s' % (adapter, str(ch[0]))
+           logger.info('Switching %s to channel: %s' % (adapter, ch))
+           cmd = 'iwconfig %s channel %s' % (adapter, str(ch))
            os.popen(cmd).read()
 
            curr_ch = get_curr_channel(adapter)
