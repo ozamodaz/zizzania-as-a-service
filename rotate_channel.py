@@ -46,11 +46,11 @@ if __name__ == "__main__":
     while True:
        for ch in ch_list:
            logger.info('Switching %s to channel: %s' % (adapter, ch))
-           cmd = 'iwconfig %s channel %s' % (adapter, str(ch))
+           cmd = 'iwconfig %s channel %s' % (adapter, ch)
            os.popen(cmd).read()
 
            curr_ch = get_curr_channel(adapter)
-           if curr_ch[:2] == ch:
+           if curr_ch[0] == ch:
               logger.info('Ok! Current channel: %s : %s GHz' % (curr_ch[0], curr_ch[1]))
            else:
               logger.info('ERROR! Channel not set! iwlist output was:')
